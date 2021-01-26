@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Friend Quiz</title>
+		<link rel="stylesheet" type="text/css" href="style.css">
+		<script type="text/javascript" src="quiz.js"></script>
+	</head>
+	<body>
+		<div id="wrapper">
+			<div id="page-content">
+				<div class="info">
+					<p>Answer a series of questions and find out where you stand on this compass!</p>
+				</div>
+				<div id="quiz">
+					<button onclick="start()" id="start">Start</button>
+					<div id="question" hidden>
+						<p id="question-count"></p>
+						<p id="question-name"></p>
+						<div id="question-answers">
+							<button onclick="answer(1)">Strongly Agree</button><br/>
+							<button onclick="answer(.8)">Agree</button><br/>
+							<button onclick="answer(.5)">Partially Agree</button><br/><br/>
+							<button onclick="answer(.05)">Neutral / Unsure</button><br/><br/>
+							<button onclick="answer(-.5)">Partially Disagree</button><br/>
+							<button onclick="answer(-.8)">Disagree</button><br/>
+							<button onclick="answer(-1)">Strongly Disagree</button>
+						</div>
+					</div>
+					<div id="completed" hidden>
+						<p>Here is where you stand: </p>
+						<svg id="compass" x="85.71428571428571" y="63.1578947368421" width="428.57142857142856" height="473.6842105263158" style="overflow: visible;">
+							<text class="compass-text" x="0" y="-5" fill="black">Johnny</text>
+							<text class="compass-text" x="214.286" y="-5" fill="black">Christian</text>
+							<text class="compass-text" x="0" y="492.684" fill="black">Drew</text>
+							<text class="compass-text" x="214.286" y="492.684" fill="black">Independent</text>
+							<!-- 4 square colors -->
+						    <rect id="SvgjsRect1009" width="214.28571428571428" height="236.8421052631579" fill="#c8e4bc"></rect>
+						    <rect id="SvgjsRect1010" width="214.28571428571428" height="236.8421052631579" fill="#92d9f8" x="214.28571428571428"></rect>
+						    <rect id="SvgjsRect1011" width="214.28571428571428" height="236.8421052631579" fill="#f9baba" y="236.8421052631579"></rect>
+						    <rect id="SvgjsRect1012" width="214.28571428571428" height="236.8421052631579" fill="#f5f5a7" x="214.28571428571428" y="236.8421052631579"></rect>
+						    <!-- Gray lines -->
+						    <line id="SvgjsLine1013" x1="0" y1="0" x2="0" y2="473.6842105263158" stroke="#b8b8b8" stroke-width="1"></line>
+						    <line id="SvgjsLine1014" x1="21.428571428571445" y1="0" x2="21.428571428571445" y2="473.6842105263158" stroke="#b8b8b8" stroke-width="1"></line>
+						    <line id="SvgjsLine1015" x1="42.85714285714286" y1="0" x2="42.85714285714286" y2="473.6842105263158" stroke="#b8b8b8" stroke-width="1"></line>
+						    <line id="SvgjsLine1016" x1="64.28571428571428" y1="0" x2="64.28571428571428" y2="473.6842105263158" stroke="#b8b8b8" stroke-width="1"></line>
+						    <line id="SvgjsLine1017" x1="85.71428571428572" y1="0" x2="85.71428571428572" y2="473.6842105263158" stroke="#b8b8b8" stroke-width="1"></line>
+						    <line id="SvgjsLine1018" x1="107.14285714285714" y1="0" x2="107.14285714285714" y2="473.6842105263158" stroke="#b8b8b8" stroke-width="1"></line>
+						    <line id="SvgjsLine1019" x1="128.57142857142856" y1="0" x2="128.57142857142856" y2="473.6842105263158" stroke="#b8b8b8" stroke-width="1"></line>
+						    <line id="SvgjsLine1020" x1="150" y1="0" x2="150" y2="473.6842105263158" stroke="#b8b8b8" stroke-width="1"></line>
+						    <line id="SvgjsLine1021" x1="171.42857142857142" y1="0" x2="171.42857142857142" y2="473.6842105263158" stroke="#b8b8b8" stroke-width="1"></line>
+						    <line id="SvgjsLine1022" x1="192.85714285714286" y1="0" x2="192.85714285714286" y2="473.6842105263158" stroke="#b8b8b8" stroke-width="1"></line>
+						    <line id="SvgjsLine1023" x1="214.28571428571428" y1="0" x2="214.28571428571428" y2="473.6842105263158" stroke="#b8b8b8" stroke-width="1"></line>
+						    <line id="SvgjsLine1024" x1="235.7142857142857" y1="0" x2="235.7142857142857" y2="473.6842105263158" stroke="#b8b8b8" stroke-width="1"></line>
+						    <line id="SvgjsLine1025" x1="257.1428571428571" y1="0" x2="257.1428571428571" y2="473.6842105263158" stroke="#b8b8b8" stroke-width="1"></line>
+						    <line id="SvgjsLine1026" x1="278.57142857142856" y1="0" x2="278.57142857142856" y2="473.6842105263158" stroke="#b8b8b8" stroke-width="1"></line>
+						    <line id="SvgjsLine1027" x1="300" y1="0" x2="300" y2="473.6842105263158" stroke="#b8b8b8" stroke-width="1"></line>
+						    <line id="SvgjsLine1028" x1="321.42857142857144" y1="0" x2="321.42857142857144" y2="473.6842105263158" stroke="#b8b8b8" stroke-width="1"></line>
+						    <line id="SvgjsLine1029" x1="342.85714285714283" y1="0" x2="342.85714285714283" y2="473.6842105263158" stroke="#b8b8b8" stroke-width="1"></line>
+						    <line id="SvgjsLine1030" x1="364.2857142857143" y1="0" x2="364.2857142857143" y2="473.6842105263158" stroke="#b8b8b8" stroke-width="1"></line>
+						    <line id="SvgjsLine1031" x1="385.71428571428567" y1="0" x2="385.71428571428567" y2="473.6842105263158" stroke="#b8b8b8" stroke-width="1"></line>
+						    <line id="SvgjsLine1032" x1="407.1428571428571" y1="0" x2="407.1428571428571" y2="473.6842105263158" stroke="#b8b8b8" stroke-width="1"></line>
+						    <line id="SvgjsLine1033" x1="428.57142857142856" y1="0" x2="428.57142857142856" y2="473.6842105263158" stroke="#b8b8b8" stroke-width="1"></line>
+						    <line id="SvgjsLine1034" x1="0" y1="2.842170943040401e-14" x2="428.57142857142856" y2="2.842170943040401e-14" stroke="#b8b8b8" stroke-width="1"></line>
+						    <line id="SvgjsLine1035" x1="0" y1="23.68421052631581" x2="428.57142857142856" y2="23.68421052631581" stroke="#b8b8b8" stroke-width="1"></line>
+						    <line id="SvgjsLine1036" x1="0" y1="47.36842105263159" x2="428.57142857142856" y2="47.36842105263159" stroke="#b8b8b8" stroke-width="1"></line>
+						    <line id="SvgjsLine1037" x1="0" y1="71.05263157894737" x2="428.57142857142856" y2="71.05263157894737" stroke="#b8b8b8" stroke-width="1"></line>
+						    <line id="SvgjsLine1038" x1="0" y1="94.73684210526315" x2="428.57142857142856" y2="94.73684210526315" stroke="#b8b8b8" stroke-width="1"></line>
+						    <line id="SvgjsLine1039" x1="0" y1="118.42105263157896" x2="428.57142857142856" y2="118.42105263157896" stroke="#b8b8b8" stroke-width="1"></line>
+						    <line id="SvgjsLine1040" x1="0" y1="142.10526315789474" x2="428.57142857142856" y2="142.10526315789474" stroke="#b8b8b8" stroke-width="1"></line>
+						    <line id="SvgjsLine1041" x1="0" y1="165.78947368421052" x2="428.57142857142856" y2="165.78947368421052" stroke="#b8b8b8" stroke-width="1"></line>
+						    <line id="SvgjsLine1042" x1="0" y1="189.4736842105263" x2="428.57142857142856" y2="189.4736842105263" stroke="#b8b8b8" stroke-width="1"></line>
+						    <line id="SvgjsLine1043" x1="0" y1="213.1578947368421" x2="428.57142857142856" y2="213.1578947368421" stroke="#b8b8b8" stroke-width="1"></line>
+						    <line id="SvgjsLine1044" x1="0" y1="236.8421052631579" x2="428.57142857142856" y2="236.8421052631579" stroke="#b8b8b8" stroke-width="1"></line>
+						    <line id="SvgjsLine1045" x1="0" y1="260.5263157894737" x2="428.57142857142856" y2="260.5263157894737" stroke="#b8b8b8" stroke-width="1"></line>
+						    <line id="SvgjsLine1046" x1="0" y1="284.2105263157895" x2="428.57142857142856" y2="284.2105263157895" stroke="#b8b8b8" stroke-width="1"></line>
+						    <line id="SvgjsLine1047" x1="0" y1="307.89473684210526" x2="428.57142857142856" y2="307.89473684210526" stroke="#b8b8b8" stroke-width="1"></line>
+						    <line id="SvgjsLine1048" x1="0" y1="331.57894736842104" x2="428.57142857142856" y2="331.57894736842104" stroke="#b8b8b8" stroke-width="1"></line>
+						    <line id="SvgjsLine1049" x1="0" y1="355.2631578947368" x2="428.57142857142856" y2="355.2631578947368" stroke="#b8b8b8" stroke-width="1"></line>
+						    <line id="SvgjsLine1050" x1="0" y1="378.9473684210526" x2="428.57142857142856" y2="378.9473684210526" stroke="#b8b8b8" stroke-width="1"></line>
+						    <line id="SvgjsLine1051" x1="0" y1="402.63157894736844" x2="428.57142857142856" y2="402.63157894736844" stroke="#b8b8b8" stroke-width="1"></line>
+						    <line id="SvgjsLine1052" x1="0" y1="426.31578947368416" x2="428.57142857142856" y2="426.31578947368416" stroke="#b8b8b8" stroke-width="1"></line>
+						    <line id="SvgjsLine1053" x1="0" y1="450" x2="428.57142857142856" y2="450" stroke="#b8b8b8" stroke-width="1"></line>
+						    <line id="SvgjsLine1054" x1="0" y1="473.6842105263157" x2="428.57142857142856" y2="473.6842105263157" stroke="#b8b8b8" stroke-width="1"></line>
+						    <!-- 2 black lines -->
+						    <line id="SvgjsLine1055" x1="0" y1="236.8421052631579" x2="428.57142857142856" y2="236.8421052631579" stroke="#000000" stroke-width="2"></line>
+						    <line id="SvgjsLine1056" x1="214.28571428571428" y1="0" x2="214.28571428571428" y2="473.6842105263158" stroke="#000000" stroke-width="2"></line>
+						    <!-- Circle -->
+						    <circle id="svg-result" cx="214.28571428571428" cy="236.8421052631579" r="7" stroke="black" stroke-width="1" fill="red" />
+						</svg>
+						<p id="coords"></p>
+						<button onclick="start()" div="start-again">Start Again</button>
+					</div>
+				</div>
+			</div>
+		</div>
+	</body>
+</html>

@@ -1,0 +1,14 @@
+#compass {
+	margin-top: 15px;
+	margin-bottom: 15px;
+}
+
+.compass-text {
+	font-size: 20px;
+	font-weight: bold;
+}
+
+#question-answers button {
+	padding: 5px;
+	margin-bottom: 5px;
+}
